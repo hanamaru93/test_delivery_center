@@ -132,12 +132,12 @@ payload =  JSON.parse('{
  #JSON tratado para envio na API      
  processamento = {
 
-    "externalCode": dados_de_entrada['id'],
-    "storeId": dados_de_entrada['store_id'],
-    "subTotal": sprintf('%.2f', dados_de_entrada['total_amount']),
-    "deliveryFee": dados_de_entrada['total_shipping'],
-    "total_shipping": dados_de_entrada['total_shipping'],
-    "total": sprintf('%.2f', dados_de_entrada['total_amount_with_shipping']),
+    "externalCode": payload['id'],
+    "storeId": payload['store_id'],
+    "subTotal": sprintf('%.2f', payload['total_amount']),
+    "deliveryFee": payload['total_shipping'],
+    "total_shipping": payload['total_shipping'],
+    "total": sprintf('%.2f', payload['total_amount_with_shipping']),
     "country": recebendo_sigla_do_pais,
     "state": recebendo_estado,
     "city": recebendo_cidade,
@@ -177,9 +177,10 @@ payload =  JSON.parse('{
  
 # os codigos abaixo foram ultilizados para fazer os testes de montagem do JSON
 
-#puts processamento
-#puts cabecalho
+puts processamento
+puts cabecalho
 
 #retorno_da_api = RestClient.post(url_da_api, cabecalho, processamento) 
 
 #puts JSON.parse(retorno_da_api.body)
+
